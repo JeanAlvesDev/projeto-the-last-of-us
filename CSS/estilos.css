@@ -1,0 +1,119 @@
+body{ 
+    font-family: 'popins', sans-serif;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+main:after{ /*cria um pseudo elemento para colocar uma "mascara" na imagem ou seja deixar mais escura*/
+    content: '';
+    min-height: 100vh;
+   width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(1,0,8,0.7736344537815126) 24%, rgba(0,0,8,0.27503501400560226) 50%, rgba(0,0,0,0.756827731092437) 83%); /* foi criado uma mascara tipo um degrade ou gradiente dos lados, ajustando cores do lado e centro do jeito que quizer, deixando mais claro ou escuro. usando site https://cssgradient.io/ */
+z-index: -1; /*para colocar por tras, para nao ficar por cima*/
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;  /* deixar em coluna*/
+    min-height: 100vh;
+    justify-content: space-evenly;
+}
+
+.informacoes .logo{ /*vai estilizar só logo da informacoes, se tivesse só .logo ia ser todos logos do html*/
+max-width: 350px;
+filter: invert(1); /*inverte as cores, exemplo. the laste of us era preto, ficou branco*/
+margin-bottom: 80px; /* da um espaçamento de 80px pra baixo da logo ou seja espacamento entre logo e o texto*/
+
+}
+
+.informacoes .descricao{
+    width: 49%;
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 24px; /* é o espacamento entre as linha de cima para baixo*/
+}
+
+.botoes-carrossel{
+    display: flex;
+    justify-content: center; /*centraliza os botoes*/
+    gap: 20px; /*espacamento entre os itens*/
+}
+
+.botoes-carrossel .botao{ /*vai estilizar todas as 6 classes que tem nome botao de uma vez*/
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    cursor: pointer;
+    border-color: #ffffff;
+    }
+
+    .botoes-carrossel .botao.selecionado{
+        background-color: #1d8346;
+    }
+
+    .menu-lateral{
+position: fixed;
+top: 0;
+right: 0;
+right: 0;
+width: 80px;
+display: flex;
+justify-content: center; /*centraliza horizontalmente*/
+align-items: center; /*alinhar verticalmente*/
+min-height: 100vh; /*precisa dar essa altura para alinha verticalmente (cima/baixo)*/
+
+    }
+
+    .menu-lateral ul{
+        display: flex; /*ficou um lado do outro*/
+        flex-direction: column; /*coloca em coluna um embaixo do outro (no caso desse exemplo git e linkdin)*/
+        gap: 15px; /* Deu um espaçamento entre os 2 em coluna para nao ficar grudado*/
+
+    }
+
+.menu-lateral .icone{
+    width: 30px;
+    filter: invert(1);
+    transition: 0.3s ease-in-out; /*tipo de animação ao passar mouse em cima, para nao ficar tao "seco"*/
+
+}
+
+.menu-lateral .icone:hover{
+    transform: scale(1.2); /*vai da uma escala (aumentar o icone quando passar mouse em cima)*/
+}
+
+.carrossel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; /* z é o eixo da profundidade igual na matematica, ou seja vai pra baixo com -1, ou seja e imagem vai ficar de fundo, para baixo de tudo. aparecendo as escrita por cima*/
+}
+    
+.carrossel .imagem{
+    width: 100%;
+    height: 100vh; /*ocupa largura e altura da tela junto com width, só que fica meio distorcido entao abaixo vamos usar outra propriedade para arrumar*/
+    object-fit: cover; /*vai cobrir todo tamanho sem perder qualidade, ou seja centralizar imagem da melhor forma*/
+    display: none; /*esconde as imagens*/
+    animation: mudarImagem 0.7s /*vai dar animação quando trocar imagem nas bolinhas la em baixo junto com propriedade abaixo @keyframes */
+
+}
+
+.carrossel .imagem.ativa{
+   display: block; /*block é para mostrar imagem que foi escondida. tem que adicionar uma classe que ja existe como imagem no html e e colocar ativa no final, primeiro coloca só na primeira imagem, depois com javascript vai dar de controlar todas */
+}
+
+@keyframes mudarImagem {  /*quando mudar imagem vai chamar esse keyframes e fazer animação8*/
+    from{
+        opacity: 0.85; /*começo da animção (estado inicial) mas para funcionar precisa fazer JS*/
+    }
+    to{
+opacity: 1; /*imagem no estado normal, final da animação*/
+    }
+   }
+
+

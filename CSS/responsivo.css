@@ -1,0 +1,68 @@
+@media (max-width: 1280px) {
+
+    /*para ajustar em telas menores, vamos fazer as propriedades abaixo*/
+    body {
+        padding: 0 40px;
+        /* em telas de 1280 para baixo ele cria a regra de 0 pra cima e pra baixo e 40 pros lados*/
+    }
+}
+
+@media (max-width: 768px) {
+
+    /*essa regra é para tablets funcionaar melhor 768 pixels*/
+    .informacoes {
+        display: flex;
+        flex-direction: column;
+        /*para jogar pra baixo ou seja ficar um embaixo do outro*/
+        align-items: center;
+        /*para centralizar na tela*/
+    }
+
+    .informacoes .descricao {
+        width: 60%;
+        /* aumenta a largura do texto escrito*/
+        text-align: center;
+        /*vai centralizar o texto/sinopse, se nao colocar ele vai sempre alinhar pela esquerda*/
+    }
+
+}
+
+@media (max-width: 425px) {
+
+    /*para celulares*/
+    .informacoes .logo {
+        /*logo estava meio estranha*/
+        max-width: 300px;
+        /*diminuir a largura para nao ficar tao grande a logo*/
+    }
+
+    .informacoes .descricao {
+        width: 100%;
+        /*deixa sinopse mais preenchida*/
+    }
+
+    .menu-lateral {
+        position: static;
+        min-height: auto;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .manu-lateral ul {
+        flex-direction: row
+    }
+
+    .conteudo {
+        min-width: 70vh;
+        gap: 50px
+    }
+
+    body {
+        padding: 40px;
+    }
+
+}
+
+
+
+/* Responsive é regra para criar site em varias variacoes como celulares, notebooks, monitores de varios tamanhos, vai identifcar os tamanhos e aplicar regra. Nso esquecer de linkar depois no HTML o arquivo responsivo*/
